@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>https://14blog.github.io/post/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Nov 2020 20:37:12 +0800</lastBuildDate><atom:link href="https://14blog.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何搭建自己的hugo静态博客</title>
+      <link>https://14blog.github.io/post/my_first_blog/</link>
+      <pubDate>Tue, 03 Nov 2020 20:37:12 +0800</pubDate>
+      
+      <guid>https://14blog.github.io/post/my_first_blog/</guid>
+      <description>我叫轩辕十四，正在测试hugo静态博客搭建！
+Stanford Quadruped Overview This repository hosts the code for Stanford Pupper and Stanford Woofer, Raspberry Pi-based quadruped robots that can trot, walk, and jump.
+Video of pupper in action: https://youtu.be/NIjodHA78UE
+Project page: https://stanfordstudentrobotics.org/pupper
+Documentation &amp;amp; build guide: https://pupper.readthedocs.io/en/latest/
+How it works The main program is run_robot.py which is located in this directory. The robot code is run as a loop, with a joystick interface, a controller, and a hardware interface orchestrating the behavior.</description>
+    </item>
+    
+  </channel>
+</rss>

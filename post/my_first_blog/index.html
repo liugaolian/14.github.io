@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>如何搭建自己的hugo静态博客 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.77.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://14blog.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何搭建自己的hugo静态博客"/>
+<meta name="twitter:description" content="我叫轩辕十四，正在测试hugo静态博客搭建！
+Stanford Quadruped Overview This repository hosts the code for Stanford Pupper and Stanford Woofer, Raspberry Pi-based quadruped robots that can trot, walk, and jump.
+Video of pupper in action: https://youtu.be/NIjodHA78UE
+Project page: https://stanfordstudentrobotics.org/pupper
+Documentation &amp; build guide: https://pupper.readthedocs.io/en/latest/
+How it works The main program is run_robot.py which is located in this directory. The robot code is run as a loop, with a joystick interface, a controller, and a hardware interface orchestrating the behavior."/>
+
+    <meta property="og:title" content="如何搭建自己的hugo静态博客" />
+<meta property="og:description" content="我叫轩辕十四，正在测试hugo静态博客搭建！
+Stanford Quadruped Overview This repository hosts the code for Stanford Pupper and Stanford Woofer, Raspberry Pi-based quadruped robots that can trot, walk, and jump.
+Video of pupper in action: https://youtu.be/NIjodHA78UE
+Project page: https://stanfordstudentrobotics.org/pupper
+Documentation &amp; build guide: https://pupper.readthedocs.io/en/latest/
+How it works The main program is run_robot.py which is located in this directory. The robot code is run as a loop, with a joystick interface, a controller, and a hardware interface orchestrating the behavior." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://14blog.github.io/post/my_first_blog/" />
+<meta property="article:published_time" content="2020-11-03T20:37:12+08:00" />
+<meta property="article:modified_time" content="2020-11-03T20:37:12+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://14blog.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">如何搭建自己的hugo静态博客</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Nov 3, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>我叫轩辕十四，正在测试hugo静态博客搭建！</p>
+<h1 id="stanford-quadruped">Stanford Quadruped</h1>
+<h2 id="overview">Overview</h2>
+<p>This repository hosts the code for Stanford Pupper and Stanford Woofer, Raspberry Pi-based quadruped robots that can trot, walk, and jump.</p>
+<p><img src="https://live.staticflickr.com/65535/49614690753_78edca83bc_4k.jpg" alt="Pupper CC Max Morse"></p>
+<p>Video of pupper in action: <a href="https://youtu.be/NIjodHA78UE">https://youtu.be/NIjodHA78UE</a></p>
+<p>Project page: <a href="https://stanfordstudentrobotics.org/pupper">https://stanfordstudentrobotics.org/pupper</a></p>
+<p>Documentation &amp; build guide: <a href="https://pupper.readthedocs.io/en/latest/">https://pupper.readthedocs.io/en/latest/</a></p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="imgs/diagram1.jpg" alt="Overview diagram">
+The main program is <code>run_robot.py</code> which is located in this directory. The robot code is run as a loop, with a joystick interface, a controller, and a hardware interface orchestrating the behavior.</p>
+<p>The joystick interface is responsible for reading joystick inputs from a UDP socket and converting them into a generic robot <code>command</code> type. A separate program, <code>joystick.py</code>, publishes these UDP messages, and is responsible for reading inputs from the PS4 controller over bluetooth. The controller does the bulk of the work, switching between states (trot, walk, rest, etc) and generating servo position targets. A detailed model of the controller is shown below. The third component of the code, the hardware interface, converts the position targets from the controller into PWM duty cycles, which it then passes to a Python binding to <code>pigpiod</code>, which then generates PWM signals in software and sends these signals to the motors attached to the Raspberry Pi.
+<img src="imgs/diagram2.jpg" alt="Controller diagram">
+This diagram shows a breakdown of the robot controller. Inside, you can see four primary components: a gait scheduler (also called gait controller), a stance controller, a swing controller, and an inverse kinematics model.</p>
+<p>The gait scheduler is responsible for planning which feet should be on the ground (stance) and which should be moving forward to the next step (swing) at any given time. In a trot for example, the diagonal pairs of legs move in sync and take turns between stance and swing. As shown in the diagram, the gait scheduler can be thought of as a conductor for each leg, switching it between stance and swing as time progresses.</p>
+<p>The stance controller controls the feet on the ground, and is actually quite simple. It looks at the desired robot velocity, and then generates a body-relative target velocity for these stance feet that is in the opposite direction as the desired velocity. It also incorporates turning, in which case it rotates the feet relative to the body in the opposite direction as the desired body rotation.</p>
+<p>The swing controller picks up the feet that just finished their stance phase, and brings them to their next touchdown location. The touchdown locations are selected so that the foot moves the same distance forward in swing as it does backwards in stance. For example, if in stance phase the feet move backwards at -0.4m/s (to achieve a body velocity of +0.4m/s) and the stance phase is 0.5 seconds long, then we know the feet will have moved backwards -0.20m. The swing controller will then move the feet forwards 0.20m to put the foot back in its starting place. You can imagine that if the swing controller only put the leg forward 0.15m, then every step the foot would lag more and more behind the body by -0.05m.</p>
+<p>Both the stance and swing controllers generate target positions for the feet in cartesian coordinates relative the body center of mass. It&rsquo;s convenient to work in cartesian coordinates for the stance and swing planning, but we now need to convert them to motor angles. This is done by using an inverse kinematics model, which maps between cartesian body coordinates and motor angles. These motor angles, also called joint angles, are then populated into the <code>state</code> variable and returned by the model.</p>
+<h2 id="how-to-build-pupper">How to Build Pupper</h2>
+<p>Main documentation: <a href="https://pupper.readthedocs.io/en/latest/">https://pupper.readthedocs.io/en/latest/</a></p>
+<p>You can find the bill of materials, pre-made kit purchasing options, assembly instructions, software installation, etc at this website.</p>
+<h2 id="help">Help</h2>
+<ul>
+<li>Feel free to raise an issue (<a href="https://github.com/stanfordroboticsclub/StanfordQuadruped/issues/new/choose">https://github.com/stanfordroboticsclub/StanfordQuadruped/issues/new/choose</a>) or email me at nathankau [at] stanford [dot] edu</li>
+<li>We also have a Google group set up here: <a href="https://groups.google.com/forum/#!forum/stanford-quadrupeds">https://groups.google.com/forum/#!forum/stanford-quadrupeds</a></li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
